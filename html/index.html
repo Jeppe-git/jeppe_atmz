@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <title>jeppe_atmz</title>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
+    integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+  <div id="app">
+    <v-app style="background: transparent">
+      <v-main>
+        <v-scroll-x-transition origin="top center 0">
+          <v-container class="fill-height" v-show="show == true">
+            <v-row justify="center" align="center">
+              <v-col cols="12" md="8" sm="12">
+                <v-card tile color="blue-grey" dark tile height="425">
+                  <v-img gradient="to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .4)" height="200"
+                    src="https://static.feber.se/article_images/48/94/70/489470.jpg">
+                    <v-card-title class="justify-center" align="center">
+                      <h1 class="font-weight-light text-h3">
+                        Välkommen tillbaka!
+                      </h1>
+                    </v-card-title>
+                  </v-img>
+                  <v-card-actions class="mt-8">
+                    <v-row>
+                      <v-col cols="6">
+                        <v-text-field :disabled="loadingTakeOut" class="input" suffix="SEK" outlined color="white"
+                          persistant-hint hint="Detta är i SEK" v-model="takeout" label="Ta ut" type="number">
+                        </v-text-field>
+                      </v-col>
+                      <v-col cols="6">
+                        <v-text-field :disabled="loadingPutIn" class="input" suffix="SEK" outlined color="white"
+                          persistant-hint hint="Detta är i SEK" v-model="putin" label="Sätt in"
+                          type="number">
+                        </v-text-field>
+                      </v-col>
+                    </v-row>
+                  </v-card-actions>
+                  <v-card-actions>
+                    <v-col cols="6">
+                      <v-btn elevation="3" block @click="TAKEOUT()" :loading="loadingTakeOut"
+                        :disabled="takeout == '' || loadingTakeOut == true" width="150" color="light-blue" large>
+                        Ta ut
+                      </v-btn>
+                    </v-col>
+                    <v-spacer></v-spacer>
+                    <v-col cols="6">
+                      <v-btn elevation="3" block @click="PUTIN()" :loading="loadingPutIn"
+                        :disabled="putin == '' || loadingPutIn == true" width="150" color="success" large>
+                        Sätt in
+                      </v-btn>
+                    </v-col>
+                  </v-card-actions>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+        </v-scroll-x-transition>
+      </v-main>
+    </v-app>
+  </div>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>
